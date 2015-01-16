@@ -7,20 +7,31 @@ describe('emitonoff', function(){
 		expect(kitty).to.be.ok();
 	});
 
-	it('should handle subscriptions', function(done){
+	it('should handle subscriptions', function(){
+		var complete = false;
 		var kitty = emitonoff();
-		kitty.on('purr', done);
+		kitty.on('purr', function(){
+			complete=true;
+		});
 		kitty.emit('purr');
+		expect(complete).to.be.ok();
 	});
 
-	it('should handle subscriptions with an existing object', function(done){
+	it('should handle subscriptions with an existing object', function(){
+		var complete = false;
 		var kitty = {
-			purr:function(){
+			purr: function(){
 				this.emit('purr');
 			}
 		};
+		
 		emitonoff(kitty);
-		kitty.on('purr', done);
+		
+		kitty.on('purr', function(){
+			complete=true;
+		});
+		
 		kitty.purr();
+		expect(complete).to.be.ok();
 	});
 }); 
