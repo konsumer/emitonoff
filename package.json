@@ -1,0 +1,27 @@
+{
+  "name": "emitonoff",
+  "version": "0.0.1",
+  "description": "Extremely simple event emitter",
+  "main": "index.js",
+  "scripts": {
+    "start": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/konsumer/emitonoff.git"
+  },
+  "keywords": [
+    "event",
+    "pubsub"
+  ],
+  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/konsumer/emitonoff/issues"
+  },
+  "homepage": "https://github.com/konsumer/emitonoff",
+  "devDependencies": {
+    "browserify": "^8.0.3",
+    "uglify-js": "^2.4.16"
+  }
+}
