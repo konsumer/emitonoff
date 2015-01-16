@@ -4,7 +4,9 @@
   "description": "Extremely simple event emitter",
   "main": "index.js",
   "scripts": {
-    "start": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js"
+    "start": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js",
+    "test": "mocha",
+    "watch": "mocha -w"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,8 @@
   "homepage": "https://github.com/konsumer/emitonoff",
   "devDependencies": {
     "browserify": "^8.0.3",
+    "chai": "^1.10.0",
+    "mocha": "^2.1.0",
     "uglify-js": "^2.4.16"
   }
 }
