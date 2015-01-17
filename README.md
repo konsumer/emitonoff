@@ -99,7 +99,7 @@ You can use a CDN:
 <script src="https://rawgit.com/konsumer/emitonoff/master/dist/emitonoff.min.js"></script>
 ```
 
-or alternately use one of the files in `dist`, locally.
+or alternately use one of the files in `dist/`, locally.
 
 ## browser support
 
