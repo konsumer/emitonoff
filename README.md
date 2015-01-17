@@ -3,7 +3,7 @@
 [![npm version](https://badge.fury.io/js/emitonoff.svg)](http://badge.fury.io/js/emitonoff)
 [![Build Status](https://travis-ci.org/konsumer/emitonoff.svg?branch=master)](https://travis-ci.org/konsumer/emitonoff)
 
-This is a simple, extremely lightweight, zero-dependency simple event/pubsub system for node or the browser.
+This is a simple, extremely lightweight, zero-dependency event/pubsub system for node or the browser.
 
 It gives your objects these really basic functions:
 
@@ -99,6 +99,6 @@ define(['emitonoff'], function(emitonoff){
 
 ## browser support
 
-I haven't done too much browser-testing, but it should work on any browser that can `Array.slice` (all of them in the last 15 years.) If you need it to work on a browser, file a bug and I will add support (or tell you t find a `Array.slice` polyfill.)
+I haven't done too much browser-testing, but it should work on any browser that can `Array.slice` (all of them in the last 15 years.) If you need it to work on a particular old browser, file a bug and I will add support (or tell you t find a `Array.slice` polyfill.)
 
 It works in IE5.5.
