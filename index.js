@@ -33,10 +33,11 @@ var EmitOnOff = module.exports = function(thing){
    * @param  {String}   name name of event
    * @param  {Mixed}    data the data to publish
    */
-  thing.emit = function(name, data){
+  thing.emit = function(name){
     if (!thing.subs[name]) return;
+    var args = Array.prototype.slice.call(arguments, 1);
     for (var i in thing.subs[name]){
-      thing.subs[name][i](data);
+      thing.subs[name][i].apply(thing, args);
     }
   };
 
