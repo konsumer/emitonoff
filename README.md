@@ -83,7 +83,7 @@ var emitonoff = require('emitonoff');
 
 ### requirejs
 
-Put it in your require path, then you can do this:
+Put `dist/emitonoff.js` in your require path, then you can do this:
 
 ```javascript
 define(['emitonoff'], function(emitonoff){
@@ -93,9 +93,13 @@ define(['emitonoff'], function(emitonoff){
 
 ### plain browser global
 
+You can use a CDN:
+
 ```html
 <script src="https://rawgit.com/konsumer/emitonoff/master/dist/emitonoff.min.js"></script>
 ```
+
+or alternately use one of the files in `dist`, locally.
 
 ## browser support
 
