@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/emitonoff.svg)](http://badge.fury.io/js/emitonoff)
 [![Build Status](https://travis-ci.org/konsumer/emitonoff.svg?branch=master)](https://travis-ci.org/konsumer/emitonoff)
+[![Code Climate](https://codeclimate.com/github/konsumer/emitonoff/badges/gpa.svg)](https://codeclimate.com/github/konsumer/emitonoff)
 
 This is a simple, extremely lightweight, zero-dependency event/pubsub system for node or the browser.
 
