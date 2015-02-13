@@ -4,7 +4,8 @@
   "description": "Extremely simple event emitter",
   "main": "index.js",
   "scripts": {
-    "start": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js",
+    "js": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js",
+    "deploy": "npm run js && node bump.js && npm publish",
     "test": "mocha",
     "watch": "mocha -w"
   },
