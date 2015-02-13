@@ -70,10 +70,16 @@ kitty.emit('purr');
 
 ## install
 
-### nodejs/browserify
+### nodejs/webpack/browserify
 
 ```
 npm install --save emitonoff
+```
+
+### bower
+
+```
+bower install --save emitonoff
 ```
 
 then, in your code:
