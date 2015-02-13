@@ -1,4 +1,4 @@
-![Alexandrovich Stroganoff](http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/A_Portrait_of_Count_Paul_Alexandrovich_Stroganoff%2C_Aged_15_by_Jean_Voille.jpg/500px-A_Portrait_of_Count_Paul_Alexandrovich_Stroganoff%2C_Aged_15_by_Jean_Voille.jpg "totally random picture of Alexandrovich Stroganoff, age 15")
+![Alexandrovich Stroganoff](https://raw.githubusercontent.com/konsumer/emitonoff/master/dist/stroganoff.png "totally random picture of Alexandrovich Stroganoff, age 15")
 
 [![npm version](https://badge.fury.io/js/emitonoff.svg)](http://badge.fury.io/js/emitonoff)
 [![Build Status](https://travis-ci.org/konsumer/emitonoff.svg?branch=master)](https://travis-ci.org/konsumer/emitonoff)
