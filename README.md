@@ -1,4 +1,4 @@
-![Alexandrovich Stroganoff](https://raw.githubusercontent.com/konsumer/emitonoff/master/dist/stroganoff.png "totally random picture of Alexandrovich Stroganoff, age 15")
+<img alt="Alexandrovich Stroganoff" title="totally random picture of Alexandrovich Stroganoff, age 15" src="https://raw.githubusercontent.com/konsumer/emitonoff/master/dist/stroganoff.png" align="right" valign="middle" />
 
 [![npm version](https://badge.fury.io/js/emitonoff.svg)](http://badge.fury.io/js/emitonoff)
 [![Build Status](https://travis-ci.org/konsumer/emitonoff.svg?branch=master)](https://travis-ci.org/konsumer/emitonoff)
