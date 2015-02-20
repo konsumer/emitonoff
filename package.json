@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "js": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js",
-    "deploy": "npm run js && node bump.js && npm publish",
+    "bump": "npm run js && mversion patch -m && npm publish",
     "test": "mocha",
     "watch": "mocha -w"
   },
@@ -27,6 +27,7 @@
     "browserify": "^8.0.3",
     "chai": "^1.10.0",
     "mocha": "^2.1.0",
-    "uglify-js": "^2.4.16"
+    "uglify-js": "^2.4.16",
+    "mversion": "^1.9.0"
   }
 }
