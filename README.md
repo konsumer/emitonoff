@@ -6,14 +6,13 @@
 
 This is a simple, extremely lightweight, zero-dependency event/pubsub system for node or the browser.
 
+It's pronounced like ["stroganoff"](http://dictionary.cambridge.org/us/pronunciation/british/stroganoff), but "emit" instead of "stroge".
+
 It gives your objects these really basic functions:
 
 - `emit` - publish an event
 - `on` - subscribe to an event
 - `off` - unsubscribe an event
-
-It's pronounced like ["stroganoff"](http://dictionary.cambridge.org/us/pronunciation/british/stroganoff), but "emit" instead of "stroge".
-
 
 Also available:
 
