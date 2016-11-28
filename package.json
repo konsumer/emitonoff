@@ -6,8 +6,8 @@
   "scripts": {
     "js": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js",
     "bump": "npm run js && mversion patch -m && npm publish",
-    "test": "mocha",
-    "watch": "mocha -w"
+    "test": "node test/emitonoff.js",
+    "watch": "tape-watch test/emitonoff.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,10 @@
     "event",
     "pubsub"
   ],
-  "author": "David Konsumer <konsumer@jetboystudio.com>",
+  "author": {
+    "name": "David Konsumer",
+    "email": "konsumer@jetboystudio.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/konsumer/emitonoff/issues"
@@ -25,9 +28,9 @@
   "homepage": "https://github.com/konsumer/emitonoff",
   "devDependencies": {
     "browserify": "^8.0.3",
-    "chai": "^1.10.0",
-    "mocha": "^2.1.0",
-    "uglify-js": "^2.4.16",
-    "mversion": "^1.9.0"
+    "mversion": "^1.9.0",
+    "tape": "^4.6.3",
+    "tape-watch": "^2.2.4",
+    "uglify-js": "^2.4.16"
   }
 }
