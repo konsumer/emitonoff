@@ -14,6 +14,12 @@ It gives your objects these really basic functions:
 
 It's pronounced like ["stroganoff"](http://dictionary.cambridge.org/us/pronunciation/british/stroganoff), but "emit" instead of "stroge".
 
+
+Also available:
+
+- `pause` - queue incoming `emit()` while you are waiting for something (sometimes needed for testing)
+- `resume` - run all the paused queue and process `emit()` normally, again
+
 ## usage
 
 ```javascript
