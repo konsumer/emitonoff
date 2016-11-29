@@ -1,9 +1,9 @@
 var EmitOnOff = module.exports = function(thing){
   if (!thing) thing = {};
 
-  thing.subs = [];
-  thing.paused = false;
-  thing.pending = [];
+  thing._subs = [];
+  thing._paused = false;
+  thing._pending = [];
 
   /**
    * Sub of pubsub
@@ -11,8 +11,8 @@ var EmitOnOff = module.exports = function(thing){
    * @param  {Function} cb   your callback
    */
   thing.on = function(name, cb){
-    thing.subs[name] = thing.subs[name] || [];
-    thing.subs[name].push(cb);
+    thing._subs[name] = thing._subs[name] || [];
+    thing._subs[name].push(cb);
   };
 
   /**
@@ -21,10 +21,10 @@ var EmitOnOff = module.exports = function(thing){
    * @param  {Function} cb   your callback
    */
   thing.off = function(name, cb){
-    if (!thing.subs[name]) return;
-    for (var i in thing.subs[name]){
-      if (thing.subs[name][i] === cb){
-        thing.subs[name].splice(i);
+    if (!thing._subs[name]) return;
+    for (var i in thing._subs[name]){
+      if (thing._subs[name][i] === cb){
+        thing._subs[name].splice(i);
         break;
       }
     }
@@ -36,31 +36,31 @@ var EmitOnOff = module.exports = function(thing){
    * @param  {Mixed}    data the data to publish
    */
   thing.emit = function(name){
-    if (!thing.subs[name]) return;
+    if (!thing._subs[name]) return;
 
     var args = Array.prototype.slice.call(arguments, 1);
 
-    if (thing.paused) {
-      thing.pending[name] = thing.pending[name] || [];
-      thing.pending[name].push(args)
+    if (thing._paused) {
+      thing._pending[name] = thing._pending[name] || [];
+      thing._pending[name].push(args)
       return
     }
 
-    for (var i in thing.subs[name]){
-      thing.subs[name][i].apply(thing, args);
+    for (var i in thing._subs[name]){
+      thing._subs[name][i].apply(thing, args);
     }
   };
 
   thing.pause = function() {
-    thing.paused = true;
+    thing._paused = true;
   };
 
   thing.resume = function() {
-    thing.paused = false;
+    thing._paused = false;
 
-    for (var name in thing.pending) {
-      for (var i = 0; i < thing.pending[name].length; i++) {
-        thing.emit(name, thing.pending[name][i])
+    for (var name in thing._pending) {
+      for (var i = 0; i < thing._pending[name].length; i++) {
+        thing.emit(name, thing._pending[name][i])
       }
     }
   };
