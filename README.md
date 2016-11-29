@@ -16,8 +16,8 @@ It gives your objects these really basic functions:
 
 Also available:
 
-- `pause` - queue incoming `emit()` while you are waiting for something (sometimes needed for testing)
-- `resume` - run all the paused queue and process `emit()` normally, again
+- `_pause` - queue incoming `emit()` while you are waiting for something (sometimes needed for testing)
+- `_resume` - run all the paused queue and process `emit()` normally, again
 
 ## usage
 
