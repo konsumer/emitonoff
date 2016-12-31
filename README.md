@@ -164,7 +164,7 @@ ReactDOM.render(<EmitOnOff state={state}><App /></EmitOnOff>, document.getElemen
 
 // async re-renders
 setInterval(() => {
-  state.counter = state.counter + 1
+  state.counter++
   state.emit('render')
 }, 1000)
 ```
