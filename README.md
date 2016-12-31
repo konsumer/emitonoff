@@ -19,7 +19,47 @@ Also available:
 - `_pause` - queue incoming `emit()` while you are waiting for something (sometimes needed for testing)
 - `_resume` - run all the paused queue and process `emit()` normally, again
 
-## usage
+## install
+
+### nodejs/webpack/browserify
+
+```
+npm install --save emitonoff
+```
+
+### bower
+
+```
+bower install --save emitonoff
+```
+
+then, in your code:
+
+```javascript
+var emitonoff = require('emitonoff');
+```
+
+### requirejs
+
+Put `dist/emitonoff.js` in your require path, then you can do this:
+
+```javascript
+define(['emitonoff'], function(emitonoff){
+    // do stuff
+});
+```
+
+### plain browser global
+
+You can use a CDN:
+
+```html
+<script src="https://rawgit.com/konsumer/emitonoff/master/dist/emitonoff.min.js"></script>
+```
+
+or alternately use one of the files in `dist/`, locally.
+
+## usage details
 
 ```javascript
 var kitty = {
@@ -73,45 +113,61 @@ kitty.emit('ate', 'bits');
 kitty.emit('purr');
 ```
 
-## install
+### react
 
-### nodejs/webpack/browserify
+You can also use it with react (as a simpler alternative to flux, redux, thunk, etc.)
 
-```
-npm install --save emitonoff
-```
+Basically, you just need a store/proxy. Here is mine (put this in a file called `EmitOnOff.js`):
 
-### bower
+```js
+import React from 'react'
 
-```
-bower install --save emitonoff
-```
-
-then, in your code:
-
-```javascript
-var emitonoff = require('emitonoff');
-```
-
-### requirejs
-
-Put `dist/emitonoff.js` in your require path, then you can do this:
-
-```javascript
-define(['emitonoff'], function(emitonoff){
-    // do stuff
-});
-```
-
-### plain browser global
-
-You can use a CDN:
-
-```html
-<script src="https://rawgit.com/konsumer/emitonoff/master/dist/emitonoff.min.js"></script>
+export default class EmitOnOff extends React.Component {
+  constructor (props) {
+    super(props)
+    this.update = this.update.bind(this)
+  }
+  update () {
+    this.forceUpdate()
+  }
+  componentDidMount () {
+    this.props.state.on('render', this.update)
+  }
+  componentWillUnmount () {
+    this.props.state.off('render', this.update)
+  }
+  render () {
+    return React.cloneElement(this.props.children)
+  }
+}
 ```
 
-or alternately use one of the files in `dist/`, locally.
+And now, whenever your store emits a `render` message, it re-renders!
+
+Here is an example:
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import emitonoff from 'emitonoff'
+
+import EmitOnOff from './EmitOnOff'
+
+// this could also be exported from a seperate file for sharing with other code
+const state = emitonoff({counter:0})
+
+const App = (props) => (
+  <div className='App'>APP {state.counter}</div>
+)
+
+ReactDOM.render(<EmitOnOff state={state}><App /></EmitOnOff>, document.getElementById('root'))
+
+// async re-renders
+setInterval(() => {
+  state.counter = state.counter + 1
+  state.emit('render')
+}, 1000)
+```
 
 ## browser support
 
