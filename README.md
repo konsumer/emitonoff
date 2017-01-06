@@ -131,10 +131,10 @@ export default class EmitOnOff extends React.Component {
     this.forceUpdate()
   }
   componentDidMount () {
-    this.props.state.on('render', this.update)
+    this.props.state.on(this.props.trigger || 'render', this.update)
   }
   componentWillUnmount () {
-    this.props.state.off('render', this.update)
+    this.props.state.off(this.props.trigger || 'render', this.update)
   }
   render () {
     return React.cloneElement(this.props.children)
@@ -168,6 +168,46 @@ setInterval(() => {
   state.emit('render')
 }, 1000)
 ```
+
+You can also make lots of little bound components, with different triggers and differnt stores!
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import emitonoff from 'emitonoff'
+
+import EmitOnOff from './EmitOnOff'
+
+// this could also be exported from a seperate file for sharing with other code
+const state = {
+  counter: emitonoff({counter: 0}),
+  random: emitonoff({value: 0})
+}
+
+const App = (props) => (
+  <div className='App'>
+    APP
+    <EmitOnOff state={state.counter} trigger='update'>
+      counter: {state.counter.counter}
+    </EmitOnOff>
+    <EmitOnOff state={state.random} trigger='new'>
+      random: {state.random.value}
+    </EmitOnOff>
+  </div>
+)
+
+ReactDOM.render(<App />, document.getElementById('root'))
+
+// async re-renders
+setInterval(() => {
+  state.counter.counter++
+  state.random.value = Math.random()
+  state.counter.emit('update')
+  state.random.emit('new')
+}, 1000)
+```
+
+Note: using the standard `render` event trigger everywhere, and a single store, in general, will probably simplify things but do what you like!
 
 ## browser support
 
