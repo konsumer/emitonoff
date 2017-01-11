@@ -27,26 +27,10 @@ Also available:
 npm install --save emitonoff
 ```
 
-### bower
-
-```
-bower install --save emitonoff
-```
-
 then, in your code:
 
 ```javascript
 var emitonoff = require('emitonoff');
-```
-
-### requirejs
-
-Put `dist/emitonoff.js` in your require path, then you can do this:
-
-```javascript
-define(['emitonoff'], function(emitonoff){
-    // do stuff
-});
 ```
 
 ### plain browser global
@@ -117,33 +101,6 @@ kitty.emit('purr');
 
 You can also use it with react (as a simpler alternative to flux, redux, thunk, etc.)
 
-Basically, you just need a store/proxy. Here is mine (put this in a file called `EmitOnOff.js`):
-
-```js
-import React from 'react'
-
-export default class EmitOnOff extends React.Component {
-  constructor (props) {
-    super(props)
-    this.update = this.update.bind(this)
-  }
-  update () {
-    this.forceUpdate()
-  }
-  componentDidMount () {
-    this.props.state.on(this.props.trigger || 'render', this.update)
-  }
-  componentWillUnmount () {
-    this.props.state.off(this.props.trigger || 'render', this.update)
-  }
-  render () {
-    return React.cloneElement(this.props.children)
-  }
-}
-```
-
-And now, whenever your store emits a `render` message, it re-renders!
-
 Here is an example:
 
 ```js
@@ -151,7 +108,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import emitonoff from 'emitonoff'
 
-import EmitOnOff from './EmitOnOff'
+import EmitOnOff from 'emitonoff/EmitOnOff'
 
 // this could also be exported from a seperate file for sharing with other code
 const state = emitonoff({counter:0})
@@ -176,7 +133,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import emitonoff from 'emitonoff'
 
-import EmitOnOff from './EmitOnOff'
+import EmitOnOff from 'emitonoff/EmitOnOff'
 
 // this could also be exported from a seperate file for sharing with other code
 const state = {

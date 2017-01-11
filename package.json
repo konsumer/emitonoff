@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "js": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js",
-    "bump": "npm run js && mversion patch -m && npm publish",
+    "release": "npm run js && release-it",
     "test": "node test/emitonoff.js",
     "watch": "tape-watch test/emitonoff.js"
   },
@@ -29,6 +29,7 @@
   "devDependencies": {
     "browserify": "^8.0.3",
     "mversion": "^1.9.0",
+    "release-it": "^2.5.3",
     "tape": "^4.6.3",
     "tape-watch": "^2.2.4",
     "uglify-js": "^2.4.16"
