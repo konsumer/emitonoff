@@ -24,7 +24,7 @@ var EmitOnOff = module.exports = function(thing){
     if (!thing._subs[name]) return;
     for (var i in thing._subs[name]){
       if (thing._subs[name][i] === cb){
-        thing._subs[name].splice(i);
+        thing._subs[name].splice(i, 1);
         break;
       }
     }
