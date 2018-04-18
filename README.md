@@ -21,6 +21,8 @@ Also available:
 
 ## install
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/konsumer/emitonoff.svg)](https://greenkeeper.io/)
+
 ### nodejs/webpack/browserify
 
 ```
