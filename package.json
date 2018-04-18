@@ -27,11 +27,11 @@
   },
   "homepage": "https://github.com/konsumer/emitonoff",
   "devDependencies": {
-    "browserify": "^8.0.3",
+    "browserify": "^16.2.0",
     "mversion": "^1.9.0",
-    "release-it": "^2.5.3",
+    "release-it": "^7.4.1",
     "tape": "^4.6.3",
     "tape-watch": "^2.2.4",
-    "uglify-js": "^2.4.16"
+    "uglify-js": "^3.3.21"
   }
 }
