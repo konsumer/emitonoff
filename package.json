@@ -32,6 +32,6 @@
     "release-it": "^9.0.0",
     "tape": "^4.6.3",
     "tape-watch": "^2.2.4",
-    "uglify-js": "^3.5.9"
+    "uglify-js": "^3.5.10"
   }
 }
