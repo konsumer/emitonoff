@@ -6,8 +6,7 @@
   "scripts": {
     "js": "browserify . --standalone emitonoff -o dist/emitonoff.js && uglifyjs dist/emitonoff.js -o dist/emitonoff.min.js",
     "release": "npm run js && release-it",
-    "test": "node test/emitonoff.js",
-    "watch": "tape-watch test/emitonoff.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,11 +26,9 @@
   },
   "homepage": "https://github.com/konsumer/emitonoff",
   "devDependencies": {
-    "browserify": "^16.2.0",
-    "mversion": "^1.9.0",
-    "release-it": "^11.0.0",
-    "tape": "^4.6.3",
-    "tape-watch": "^2.2.4",
-    "uglify-js": "^3.5.9"
+    "browserify": "^16.2.3",
+    "jest": "^24.7.1",
+    "release-it": "^12.0.0",
+    "uglify-js": "^3.5.10"
   }
 }

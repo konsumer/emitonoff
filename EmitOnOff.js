@@ -9,12 +9,15 @@ export default class EmitOnOff extends React.Component {
     this.forceUpdate()
   }
   componentDidMount () {
-    this.props.state.on(this.props.trigger || 'render', this.update)
+    const { trigger = 'render' } = this.props
+    this.props.state.on(trigger, this.update)
   }
   componentWillUnmount () {
-    this.props.state.off(this.props.trigger || 'render', this.update)
+    const { trigger = 'render' } = this.props
+    this.props.state.off(trigger, this.update)
   }
   render () {
-    return React.cloneElement(this.props.children)
+    const { trigger, children, ...props } = this.props
+    return React.cloneElement(children, props)
   }
 }
