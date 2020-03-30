@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/konsumer/emitonoff",
   "devDependencies": {
-    "browserify": "^16.2.3",
+    "browserify": "^16.5.1",
     "jest": "^24.7.1",
     "release-it": "^12.0.0",
     "uglify-js": "^3.5.10"
